@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="binome51Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'binome51.dbo.vAbonnes' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="vAbonnes">
+          <Key>
+            <PropertyRef Name="id" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pseudo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="motpasse" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="mel" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="prenom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="adresse" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="cp" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ville" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pays" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="latitude" Type="real" />
+          <Property Name="longitude" Type="real" />
+          <Property Name="indicatif" Type="int" Nullable="false" />
+          <Property Name="tel" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="aeroport" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'binome51.dbo.vAvis' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="vAvis">
+          <Key>
+            <PropertyRef Name="id" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idabonne" Type="int" Nullable="false" />
+          <Property Name="idrestaurant" Type="int" Nullable="false" />
+          <Property Name="idvisite" Type="int" Nullable="false" />
+          <Property Name="idrepas" Type="int" Nullable="false" />
+          <Property Name="prix" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="dateavis" Type="datetime" Nullable="false" />
+          <Property Name="titre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="detail" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="noteglobale" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="notecuisine" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="noteservice" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="notequaliteprix" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="noteambiance" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'binome51.dbo.vRestaurants' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="vRestaurants">
+          <Key>
+            <PropertyRef Name="id" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="prix" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="categorieprix" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="adresse" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="cp" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ville" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pays" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="latitude" Type="real" />
+          <Property Name="longitude" Type="real" />
+          <Property Name="indicatif" Type="int" Nullable="false" />
+          <Property Name="tel" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="siteweb" Type="varchar" MaxLength="100" />
+          <Property Name="mail" Type="varchar" MaxLength="80" Nullable="false" />
+        </EntityType>
+        <Function Name="SPAbonne_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ABO_PSEUDO" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_MOTPASSE" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_MEL" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_NOM" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_PRENOM" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_ADR" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_CP" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_VILLE" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_PAYS" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_LATITUDE" Type="real" Mode="In" />
+          <Parameter Name="ABO_LONGITUDE" Type="real" Mode="In" />
+          <Parameter Name="IND_INDICATIF" Type="int" Mode="In" />
+          <Parameter Name="ABO_TEL" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_AEROPORT" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SPAbonne_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ABO_ID" Type="int" Mode="In" />
+          <Parameter Name="ABO_PSEUDO" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_MOTPASSE" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_MEL" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_NOM" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_PRENOM" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_ADR" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_CP" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_VILLE" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_PAYS" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_LATITUDE" Type="real" Mode="In" />
+          <Parameter Name="ABO_LONGITUDE" Type="real" Mode="In" />
+          <Parameter Name="IND_INDICATIF" Type="int" Mode="In" />
+          <Parameter Name="ABO_TEL" Type="varchar" Mode="In" />
+          <Parameter Name="ABO_AEROPORT" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="binome51ModelStoreContainer">
+          <EntitySet Name="vAbonnes" EntityType="Self.vAbonnes" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[vAbonnes].[id] AS [id], 
+[vAbonnes].[pseudo] AS [pseudo], 
+[vAbonnes].[motpasse] AS [motpasse], 
+[vAbonnes].[mel] AS [mel], 
+[vAbonnes].[nom] AS [nom], 
+[vAbonnes].[prenom] AS [prenom], 
+[vAbonnes].[adresse] AS [adresse], 
+[vAbonnes].[cp] AS [cp], 
+[vAbonnes].[ville] AS [ville], 
+[vAbonnes].[pays] AS [pays], 
+[vAbonnes].[latitude] AS [latitude], 
+[vAbonnes].[longitude] AS [longitude], 
+[vAbonnes].[indicatif] AS [indicatif], 
+[vAbonnes].[tel] AS [tel], 
+[vAbonnes].[aeroport] AS [aeroport]
+FROM [dbo].[vAbonnes] AS [vAbonnes]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vAvis" EntityType="Self.vAvis" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[vAvis].[id] AS [id], 
+[vAvis].[idabonne] AS [idabonne], 
+[vAvis].[idrestaurant] AS [idrestaurant], 
+[vAvis].[idvisite] AS [idvisite], 
+[vAvis].[idrepas] AS [idrepas], 
+[vAvis].[prix] AS [prix], 
+[vAvis].[dateavis] AS [dateavis], 
+[vAvis].[titre] AS [titre], 
+[vAvis].[detail] AS [detail], 
+[vAvis].[noteglobale] AS [noteglobale], 
+[vAvis].[notecuisine] AS [notecuisine], 
+[vAvis].[noteservice] AS [noteservice], 
+[vAvis].[notequaliteprix] AS [notequaliteprix], 
+[vAvis].[noteambiance] AS [noteambiance]
+FROM [dbo].[vAvis] AS [vAvis]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vRestaurants" EntityType="Self.vRestaurants" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[vRestaurants].[id] AS [id], 
+[vRestaurants].[prix] AS [prix], 
+[vRestaurants].[nom] AS [nom], 
+[vRestaurants].[description] AS [description], 
+[vRestaurants].[categorieprix] AS [categorieprix], 
+[vRestaurants].[adresse] AS [adresse], 
+[vRestaurants].[cp] AS [cp], 
+[vRestaurants].[ville] AS [ville], 
+[vRestaurants].[pays] AS [pays], 
+[vRestaurants].[latitude] AS [latitude], 
+[vRestaurants].[longitude] AS [longitude], 
+[vRestaurants].[indicatif] AS [indicatif], 
+[vRestaurants].[tel] AS [tel], 
+[vRestaurants].[siteweb] AS [siteweb], 
+[vRestaurants].[mail] AS [mail]
+FROM [dbo].[vRestaurants] AS [vRestaurants]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="binome51Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="vAbonnes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pseudo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="motpasse" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mel" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adresse" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ville" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pays" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="latitude" Type="Single" />
+          <Property Name="longitude" Type="Single" />
+          <Property Name="indicatif" Type="Int32" Nullable="false" />
+          <Property Name="tel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="aeroport" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="vAvis" Relationship="binome51Model.vAbonnesvAvis" FromRole="vAbonnes" ToRole="vAvis" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
+        </EntityType>
+        <EntityType Name="vAvis">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idabonne" Type="Int32" Nullable="false" />
+          <Property Name="idrestaurant" Type="Int32" Nullable="false" />
+          <Property Name="idvisite" Type="Int32" Nullable="false" />
+          <Property Name="idrepas" Type="Int32" Nullable="false" />
+          <Property Name="prix" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dateavis" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="titre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="detail" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="noteglobale" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="notecuisine" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="noteservice" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="notequaliteprix" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="noteambiance" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <NavigationProperty Name="vAbonnes" Relationship="binome51Model.vAbonnesvAvis" FromRole="vAvis" ToRole="vAbonnes" />
+          <NavigationProperty Name="vRestaurants" Relationship="binome51Model.vRestaurantsvAvis" FromRole="vAvis" ToRole="vRestaurants" />
+        </EntityType>
+        <EntityType Name="vRestaurants">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="prix" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nom" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="categorieprix" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adresse" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ville" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pays" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="latitude" Type="Single" />
+          <Property Name="longitude" Type="Single" />
+          <Property Name="indicatif" Type="Int32" Nullable="false" />
+          <Property Name="tel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="siteweb" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mail" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="vAvis" Relationship="binome51Model.vRestaurantsvAvis" FromRole="vRestaurants" ToRole="vAvis" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
+        </EntityType>
+        <EntityContainer Name="binome51Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="vAbonnes" EntityType="Self.vAbonnes" />
+          <EntitySet Name="vAvis" EntityType="Self.vAvis" />
+          <EntitySet Name="vRestaurants" EntityType="Self.vRestaurants" />
+          <AssociationSet Name="vAbonnesvAvis" Association="binome51Model.vAbonnesvAvis">
+            <End Role="vAbonnes" EntitySet="vAbonnes" />
+            <End Role="vAvis" EntitySet="vAvis" />
+          </AssociationSet>
+          <AssociationSet Name="vRestaurantsvAvis" Association="binome51Model.vRestaurantsvAvis">
+            <End Role="vRestaurants" EntitySet="vRestaurants" />
+            <End Role="vAvis" EntitySet="vAvis" />
+          </AssociationSet>
+          <FunctionImport Name="SPAbonne_Insert" ReturnType="Collection(Decimal)">
+            <Parameter Name="ABO_PSEUDO" Mode="In" Type="String" />
+            <Parameter Name="ABO_MOTPASSE" Mode="In" Type="String" />
+            <Parameter Name="ABO_MEL" Mode="In" Type="String" />
+            <Parameter Name="ABO_NOM" Mode="In" Type="String" />
+            <Parameter Name="ABO_PRENOM" Mode="In" Type="String" />
+            <Parameter Name="ABO_ADR" Mode="In" Type="String" />
+            <Parameter Name="ABO_CP" Mode="In" Type="String" />
+            <Parameter Name="ABO_VILLE" Mode="In" Type="String" />
+            <Parameter Name="ABO_PAYS" Mode="In" Type="String" />
+            <Parameter Name="ABO_LATITUDE" Mode="In" Type="Single" />
+            <Parameter Name="ABO_LONGITUDE" Mode="In" Type="Single" />
+            <Parameter Name="IND_INDICATIF" Mode="In" Type="Int32" />
+            <Parameter Name="ABO_TEL" Mode="In" Type="String" />
+            <Parameter Name="ABO_AEROPORT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SPAbonne_Update">
+            <Parameter Name="ABO_ID" Mode="In" Type="Int32" />
+            <Parameter Name="ABO_PSEUDO" Mode="In" Type="String" />
+            <Parameter Name="ABO_MOTPASSE" Mode="In" Type="String" />
+            <Parameter Name="ABO_MEL" Mode="In" Type="String" />
+            <Parameter Name="ABO_NOM" Mode="In" Type="String" />
+            <Parameter Name="ABO_PRENOM" Mode="In" Type="String" />
+            <Parameter Name="ABO_ADR" Mode="In" Type="String" />
+            <Parameter Name="ABO_CP" Mode="In" Type="String" />
+            <Parameter Name="ABO_VILLE" Mode="In" Type="String" />
+            <Parameter Name="ABO_PAYS" Mode="In" Type="String" />
+            <Parameter Name="ABO_LATITUDE" Mode="In" Type="Single" />
+            <Parameter Name="ABO_LONGITUDE" Mode="In" Type="Single" />
+            <Parameter Name="IND_INDICATIF" Mode="In" Type="Int32" />
+            <Parameter Name="ABO_TEL" Mode="In" Type="String" />
+            <Parameter Name="ABO_AEROPORT" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <Association Name="vAbonnesvAvis">
+          <End Type="binome51Model.vAbonnes" Role="vAbonnes" Multiplicity="1" />
+          <End Type="binome51Model.vAvis" Role="vAvis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vAbonnes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="vAvis">
+              <PropertyRef Name="idabonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vRestaurantsvAvis">
+          <End Type="binome51Model.vRestaurants" Role="vRestaurants" Multiplicity="1" />
+          <End Type="binome51Model.vAvis" Role="vAvis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vRestaurants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="vAvis">
+              <PropertyRef Name="idrestaurant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="binome51ModelStoreContainer" CdmEntityContainer="binome51Entities1">
+          <EntitySetMapping Name="vAbonnes">
+            <EntityTypeMapping TypeName="binome51Model.vAbonnes">
+              <MappingFragment StoreEntitySet="vAbonnes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pseudo" ColumnName="pseudo" />
+                <ScalarProperty Name="motpasse" ColumnName="motpasse" />
+                <ScalarProperty Name="mel" ColumnName="mel" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="ville" ColumnName="ville" />
+                <ScalarProperty Name="pays" ColumnName="pays" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="indicatif" ColumnName="indicatif" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="aeroport" ColumnName="aeroport" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="binome51Model.vAbonnes">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="binome51Model.Store.SPAbonne_Insert" >
+                  <ScalarProperty Name="aeroport" ParameterName="ABO_AEROPORT" />
+                  <ScalarProperty Name="tel" ParameterName="ABO_TEL" />
+                  <ScalarProperty Name="indicatif" ParameterName="IND_INDICATIF" />
+                  <ScalarProperty Name="longitude" ParameterName="ABO_LONGITUDE" />
+                  <ScalarProperty Name="latitude" ParameterName="ABO_LATITUDE" />
+                  <ScalarProperty Name="pays" ParameterName="ABO_PAYS" />
+                  <ScalarProperty Name="ville" ParameterName="ABO_VILLE" />
+                  <ScalarProperty Name="cp" ParameterName="ABO_CP" />
+                  <ScalarProperty Name="adresse" ParameterName="ABO_ADR" />
+                  <ScalarProperty Name="prenom" ParameterName="ABO_PRENOM" />
+                  <ScalarProperty Name="nom" ParameterName="ABO_NOM" />
+                  <ScalarProperty Name="mel" ParameterName="ABO_MEL" />
+                  <ScalarProperty Name="motpasse" ParameterName="ABO_MOTPASSE" />
+                  <ScalarProperty Name="pseudo" ParameterName="ABO_PSEUDO" />
+                  <ResultBinding Name="id" ColumnName="newId" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="binome51Model.Store.SPAbonne_Update" >
+                  <ScalarProperty Name="aeroport" ParameterName="ABO_AEROPORT" Version="Current" />
+                  <ScalarProperty Name="tel" ParameterName="ABO_TEL" Version="Current" />
+                  <ScalarProperty Name="indicatif" ParameterName="IND_INDICATIF" Version="Current" />
+                  <ScalarProperty Name="longitude" ParameterName="ABO_LONGITUDE" Version="Current" />
+                  <ScalarProperty Name="latitude" ParameterName="ABO_LATITUDE" Version="Current" />
+                  <ScalarProperty Name="pays" ParameterName="ABO_PAYS" Version="Current" />
+                  <ScalarProperty Name="ville" ParameterName="ABO_VILLE" Version="Current" />
+                  <ScalarProperty Name="cp" ParameterName="ABO_CP" Version="Current" />
+                  <ScalarProperty Name="adresse" ParameterName="ABO_ADR" Version="Current" />
+                  <ScalarProperty Name="prenom" ParameterName="ABO_PRENOM" Version="Current" />
+                  <ScalarProperty Name="nom" ParameterName="ABO_NOM" Version="Current" />
+                  <ScalarProperty Name="mel" ParameterName="ABO_MEL" Version="Current" />
+                  <ScalarProperty Name="motpasse" ParameterName="ABO_MOTPASSE" Version="Current" />
+                  <ScalarProperty Name="pseudo" ParameterName="ABO_PSEUDO" Version="Current" />
+                  <ScalarProperty Name="id" ParameterName="ABO_ID" Version="Current" />
+                </UpdateFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vAvis">
+            <EntityTypeMapping TypeName="binome51Model.vAvis">
+              <MappingFragment StoreEntitySet="vAvis">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idabonne" ColumnName="idabonne" />
+                <ScalarProperty Name="idrestaurant" ColumnName="idrestaurant" />
+                <ScalarProperty Name="idvisite" ColumnName="idvisite" />
+                <ScalarProperty Name="idrepas" ColumnName="idrepas" />
+                <ScalarProperty Name="prix" ColumnName="prix" />
+                <ScalarProperty Name="dateavis" ColumnName="dateavis" />
+                <ScalarProperty Name="titre" ColumnName="titre" />
+                <ScalarProperty Name="detail" ColumnName="detail" />
+                <ScalarProperty Name="noteglobale" ColumnName="noteglobale" />
+                <ScalarProperty Name="notecuisine" ColumnName="notecuisine" />
+                <ScalarProperty Name="noteservice" ColumnName="noteservice" />
+                <ScalarProperty Name="notequaliteprix" ColumnName="notequaliteprix" />
+                <ScalarProperty Name="noteambiance" ColumnName="noteambiance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vRestaurants">
+            <EntityTypeMapping TypeName="binome51Model.vRestaurants">
+              <MappingFragment StoreEntitySet="vRestaurants">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="prix" ColumnName="prix" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="categorieprix" ColumnName="categorieprix" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="ville" ColumnName="ville" />
+                <ScalarProperty Name="pays" ColumnName="pays" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="indicatif" ColumnName="indicatif" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="siteweb" ColumnName="siteweb" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SPAbonne_Insert" FunctionName="binome51Model.Store.SPAbonne_Insert" />
+          <FunctionImportMapping FunctionImportName="SPAbonne_Update" FunctionName="binome51Model.Store.SPAbonne_Update" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
