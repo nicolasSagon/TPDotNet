@@ -126,9 +126,16 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Assemblers\Bases\BaseAssembler.cs" />
+    <Compile Include="Models\Assemblers\RestaurantAssembler.cs" />
+    <Compile Include="Models\Bases\CRUD.cs" />
+    <Compile Include="Models\DataAccess.cs" />
+    <Compile Include="Models\Restaurant.cs" />
+    <Compile Include="Models\RestaurantService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -215,11 +222,11 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Restaurants\Index.cshtml" />
+    <Content Include="Views\Restaurants\Selection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

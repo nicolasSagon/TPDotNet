@@ -1,0 +1,103 @@
+﻿@model TP03.Models.Restaurant
+
+@{
+    ViewBag.Title = "Selection";
+}
+
+<h2>Selection</h2>
+
+<fieldset>
+    <legend>Restaurant</legend>
+    @if (!String.IsNullOrEmpty(Model.Nom))
+    {
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Nom)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Nom)
+        </div>
+    }
+    @if (!String.IsNullOrEmpty(Model.Prix))
+    {
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Prix)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Prix)
+        </div>
+    }
+    @if (!String.IsNullOrEmpty(Model.Description))
+    {
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Description)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Description)
+        </div>
+    }
+    @if (!String.IsNullOrEmpty(Model.CategoriePrix))
+    {
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.CategoriePrix)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.CategoriePrix)
+        </div>
+    }
+    @if (!String.IsNullOrEmpty(Model.Adresse1 + Model.Adresse2 + Model.CP + Model.Ville + Model.Etat + Model.PaysId))
+    {
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Adresse1)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Adresse1)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Adresse2)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.CP)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Ville)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Etat)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.PaysId)
+        </div>
+    }
+    @if (!String.IsNullOrEmpty(Model.Tel + Model.Indicatif))
+    {
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Tel)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Indicatif) - @Html.DisplayFor(model => model.Tel)
+        </div>
+    }
+    @if (!String.IsNullOrEmpty(Model.Web))
+    {
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Web)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Web)
+        </div>
+    }
+
+    @if (!String.IsNullOrEmpty(Model.Mel))
+    {
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Mel)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Mel)
+        </div>
+    }
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
